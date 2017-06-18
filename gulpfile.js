@@ -19,7 +19,7 @@ const paths = {
     img:             "./img",
     html:            "./html",
     scripts:         "./scripts",
-    stylesheetsCSS:  "./stylesheets/css",
+    stylesheetsCSS:  "./stylesheets/tmp",
     stylesheetsSASS: "./stylesheets/sass"
 };
 const vendorPaths = [
