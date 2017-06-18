@@ -30,7 +30,7 @@ const vendorPaths = [
 // hence why I had to download the library from ionicons.com instead...
 const fontPaths = [
 	'./node_modules/font-awesome/fonts/**/*',
-	'./ionicons-2.0.1/fonts/**/*'
+	'./node_modules/ionicons/dist/fonts/**/*'
 ];
 const port = 8080;
 
