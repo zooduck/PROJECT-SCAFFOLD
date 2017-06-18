@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'grid';
+@import 'mixins';
+@import 'animations';
+@import 'fonts';
+body {
+	margin: 0 auto;
+	text-align: center;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+}
+@import 'theme';

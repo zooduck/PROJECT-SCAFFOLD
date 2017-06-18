@@ -1,0 +1,14 @@
+div.background-image-example {
+	display: inline-block;
+	width: 576px;
+	height: 385px;
+	&:hover {
+		background-size: 110%;
+	}
+	transition: all .5s;
+	background-image: url('img/example.jpg');
+	background-size: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+@include placeholder('input[type=text].placeholder-mixin-example', 'tomato');

@@ -1,0 +1,18 @@
+// placeholder
+$vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::-moz-placeholder' ':-ms-input-placeholder' ':-moz-placeholder';
+@mixin placeholder($attr-class: '', $color: #555){
+  @each $prefix in $vendor-prefixes{
+    #{$attr-class}#{$prefix}{
+      color: #{$color};
+      label{
+        pointer-events: none;
+      }
+    }
+  }
+}
+// =============================================================
+// examples:
+// =============================================================
+// => @include placeholder('input[type=text].test', 'tomato');
+// => @include placeholder('', 'coral');
+// => @include placeholder('', '');
