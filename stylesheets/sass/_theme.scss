@@ -12,11 +12,9 @@ div.background-image-example {
 	background-repeat: no-repeat;
 }
 .tomato-placeholder {
-	font-size: 2em;	
+	font-size: 2em;
+	@include placeholder('tomato');
 }
-
-@include placeholder('input[type=text].tomato-placeholder', 'tomato');
-
 .input-icon {
 	font-size: 2em;
 	&.person-add {

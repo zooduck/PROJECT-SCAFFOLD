@@ -1,14 +1,16 @@
 // |||||||||||||
 // placeholder
-// params (optional): atrribute or class, color
+// params (optional): color
 // |||||||||||||
 //@ ===============================================================================
-//@ @include placeholder('input[type=text].my-custom-placeholder', 'tomato');
+//@ input[type=text].tomato-placeholder {
+//@     @include placeholder('tomato');
+//@ }
 //@ ===============================================================================
-$vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::-moz-placeholder' ':-ms-input-placeholder' ':-moz-placeholder';
-@mixin placeholder($attr-class: '', $color: #555){
-  @each $prefix in $vendor-prefixes{
-    #{$attr-class}#{$prefix}{
+$placeholder-vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::-moz-placeholder' ':-ms-input-placeholder' ':-moz-placeholder';
+@mixin placeholder($color: #555){
+  @each $prefix in $placeholder-vendor-prefixes{
+    &#{$prefix}{
       color: #{$color};
       label{
         pointer-events: none;
