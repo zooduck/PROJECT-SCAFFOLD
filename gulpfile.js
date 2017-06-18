@@ -55,7 +55,7 @@ let cleanFonts = () => {
     return del.sync([
         `${paths.distFonts}/\**`,
         `!${paths.distFonts}`
-    ]); 
+    ]);
 };
 
 let cleanStylesheets = () => {
@@ -64,14 +64,14 @@ let cleanStylesheets = () => {
         `${paths.stylesheetsCSS}/\**/\*.css`,
         `!${paths.distCSS}`,
         `!${paths.stylesheetsCSS}`
-    ]);    
+    ]);
 };
 
 let cleanScripts = () => {
     return del.sync([
         `${paths.distJS}/\**/\*.js`,
         `!${paths.distJS}`
-    ]);    
+    ]);
 };
 
 gulp.task("clean-html", [], cleanHTML);
@@ -114,7 +114,7 @@ gulp.task("scripts", [], scripts);
 let sass = () => {
     return gulp.src(`${paths.stylesheetsSASS}/\**/\*.scss`)
         .pipe($.sass().on("error", $.sass.logError))
-        .pipe(gulp.dest(paths.stylesheetsCSS));   
+        .pipe(gulp.dest(paths.stylesheetsCSS));
 };
 let stylesheets = (cb) => {
     pump([
@@ -127,7 +127,7 @@ let stylesheets = (cb) => {
         gulp.dest(paths.distCSS)
     ], cb);
 };
-gulp.task("sass", [] , sass);
+gulp.task("sass", [], sass);
 gulp.task("stylesheets", ["sass"], stylesheets);
 
 // -------------------------------------------
@@ -135,7 +135,7 @@ gulp.task("stylesheets", ["sass"], stylesheets);
 // -------------------------------------------
 let images = () => {
     return gulp.src(`${paths.img}/\**/\*`)
-        .pipe(gulp.dest(paths.distImg));   
+        .pipe(gulp.dest(paths.distImg));
 };
 gulp.task("images", [], images);
 
@@ -170,7 +170,7 @@ let connect = () => {
     var options = {
         uri: `http:\/\/localhost:${port}`,
         app: "chrome"
-    }
+    };
     gulp.src("./")
         .pipe($.open(options));
 };
@@ -183,7 +183,7 @@ let watch = () => {
     gulp.watch([
         `${paths.distRoot}/\*.html`,
         `${paths.distRoot}/\*.css`,
-        `${paths.distRoot}/\*.js`,
+        `${paths.distRoot}/\*.js`
     ]).on("change", (file) => {
         $.livereload.changed(file.path);
     });
@@ -197,7 +197,7 @@ let watch = () => {
 // -------------------------------------------
 gulp.task("default", ["clean", "html", "dependencies", "scripts", "stylesheets", "images", "fonts"], function (cb) {
     cb();
-    setTimeout( () => {
+    setTimeout(() => {
         watch();
         connect();
         $.util.log("Gulp started and watching for changes...");

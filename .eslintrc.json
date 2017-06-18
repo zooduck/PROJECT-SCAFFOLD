@@ -12,6 +12,7 @@
         "semi": ["error", "always"],
         "no-useless-escape": 0,
         "quotes": ["error", "double"],
-        "key-spacing": 0
+        "key-spacing": 0,
+        "indent": ["error", 4]
     }
 }
