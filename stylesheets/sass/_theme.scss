@@ -11,4 +11,18 @@ div.background-image-example {
 	background-position: center center;
 	background-repeat: no-repeat;
 }
-@include placeholder('input[type=text].placeholder-mixin-example', 'tomato');
+.tomato-placeholder {
+	font-size: 2em;	
+}
+
+@include placeholder('input[type=text].tomato-placeholder', 'tomato');
+
+.input-icon {
+	font-size: 2em;
+	&.person-add {
+		@include inputIcon(Ionicons, '\f344');
+	}
+	&.search {
+		@include inputIcon(Ionicons, '\f375', 'tomato', '#fff');
+	}
+}
