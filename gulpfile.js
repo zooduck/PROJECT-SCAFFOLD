@@ -26,8 +26,6 @@ const vendorPaths = [
 	'./node_modules/lodash/lodash.min.js',
 	'./node_modules/moment/min/moment.min.js'
 ];
-// NOTE: @17-06-2017 npm or yarn installs of ionicons were missing the android icons (bower version was good, but bower is deprecated)
-// hence why I had to download the library from ionicons.com instead...
 const fontPaths = [
 	'./node_modules/font-awesome/fonts/**/*',
 	'./node_modules/ionicons/dist/fonts/**/*'
