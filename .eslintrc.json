@@ -5,12 +5,13 @@
         "promise"
     ],
     "env": {
-    	"browser": true,
-    	"node": true
+        "browser": true,
+        "node": true
     },
     "rules": {
-    	"semi": ["error", "always"],
-    	"no-useless-escape": 0,
-    	"quotes": ["error", "double"]
+        "semi": ["error", "always"],
+        "no-useless-escape": 0,
+        "quotes": ["error", "double"],
+        "key-spacing": 0
     }
 }
