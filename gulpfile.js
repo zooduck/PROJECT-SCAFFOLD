@@ -188,7 +188,7 @@ let watch = () => {
         $.livereload.changed(file.path);
     });
     gulp.watch(paths["scripts"] + "/*.js", {interval: 500}, ["scripts"]);
-    gulp.watch(paths["stylesheets"] + "/sass/*.scss", {interval: 500}, ["stylesheets"]);
+    gulp.watch(paths["stylesheetsSASS"] + "/*.scss", {interval: 500}, ["stylesheets"]);
     gulp.watch(paths["html"] + "/*.html", {interval: 500}, ["html"]);
 };
 
