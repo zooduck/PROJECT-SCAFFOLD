@@ -11,10 +11,13 @@ $placeholder-vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::
 @mixin placeholder($color: #555){
   @each $prefix in $placeholder-vendor-prefixes{
     &#{$prefix}{
+      transition: all .2s;
       color: #{$color};
-      label{
-        pointer-events: none;
-      }
+    }
+    &:focus {
+        &#{$prefix}{
+            transform: scale(0.9);
+        }
     }
   }
 }

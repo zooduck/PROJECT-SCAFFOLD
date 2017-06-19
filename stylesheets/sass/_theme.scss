@@ -13,11 +13,14 @@ div.background-image-example {
 }
 .tomato-placeholder {
 	font-size: 2em;
-	@include placeholder('tomato');
+	@include placeholder(tomato);
 }
 .input-icon {
 	font-size: 2em;
 	&.search {
+		input {
+			@include placeholder();
+		}
 		label {
 			@include inputIcon_Label(Ionicons, '\f375', coral, #222);
 		}
@@ -26,6 +29,9 @@ div.background-image-example {
 		}
 	}
 	&.person-add {
+		input {
+			@include placeholder();
+		}
 		label {
 			@include inputIcon_Label(Ionicons, '\f344', '', #222);
 		}
