@@ -13,13 +13,13 @@ div.background-image-example {
 }
 .tomato-placeholder {
 	font-size: 2em;
-	@include placeholder(tomato);
+	@include placeholder((color tomato));
 }
 .input-icon {
 	font-size: 2em;
 	&.search {
 		input {
-			@include placeholder();
+			@include placeholder((color crimson) (font-family impact));
 		}
 		label {
 			@include inputIcon_Label(Ionicons, '\f375', crimson, #fff);
@@ -27,10 +27,13 @@ div.background-image-example {
 		a {
 			@include inputIcon_A(Ionicons, '\f2c0', '', crimson);
 		}
+		.placeholder {
+			color: crimson;
+		}
 	}
 	&.person-add {
 		input {
-			@include placeholder();
+			@include placeholder((color green));
 		}
 		label {
 			@include inputIcon_Label(Ionicons, '\f344', '', #222);
@@ -39,4 +42,14 @@ div.background-image-example {
 			@include inputIcon_A(Ionicons, '\f2c0', '', #555);
 		}
 	}
+	&.address-card {
+		font-size: 1.5em;
+		label {
+			@include inputIcon_Label(FontAwesome, '\f2bc');
+		}
+		a {
+			@include inputIcon_A(Ionicons, '\f2c0');
+		}
+	}
 }
+

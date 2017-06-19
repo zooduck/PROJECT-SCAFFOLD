@@ -15,18 +15,36 @@
 		<input class='tomato-placeholder' type='text' placeholder=".tomato-placeholder">
 
 		<h1>Sass inputIcon @mixin examples</h1>
-		<!-- search -->
-		<section class="input-icon search">
-			<label for="creditCardInput"></label>
-			<input id='creditCardInput' placeholder='.input-icon.search'>
-			<a onclick="resetInput(this)"></a>
-		</section>
-		<!-- person-add -->
-		<span class="input-icon person-add">
-			<label for="personAddInput"></label>
-			<input id='personAddInput' placeholder='.input-icon.search'>
-			<a onclick="resetInput(this)"></a>
-		</span>		
+
+		<div class="row">
+			<!-- search -->
+			<section class="input-icon search">
+				<label for="creditCardInput"></label>
+				<input id='creditCardInput' placeholder='.input-icon.search'>
+				<div class="placeholder">.input-icon.search</div>
+				<a onclick="resetInput(this)"></a>
+			</section>
+		</div>
+
+		<div class="row">
+			<!-- person-add -->
+			<section class="input-icon person-add">
+				<label for="personAddInput"></label>
+				<input id='personAddInput' placeholder='.input-icon.person-add'>
+				<span class="placeholder">.input-icon.person-add</span>
+				<a onclick="resetInput(this)"></a>
+			</section>
+		</div>
+
+		<div class="row">
+			<!-- address-card-o -->
+			<section class="input-icon address-card">
+				<label for="addressCardInput"></label>
+				<input id="addressCardInput" placeholder=".input-icon.address-card">
+				<span class="placeholder">.input-icon.address-card</span>
+				<a onclick="resetInput(this)"></a>
+			</section>
+		</div>
 
 		<h1>fontawesome icon examples</h1>
 		<span>fa fa-address-card-o <i class="fa fa-address-card-o"></i></span>
