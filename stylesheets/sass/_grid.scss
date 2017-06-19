@@ -9,9 +9,12 @@ $names: mobile, tablet, desktop, widescreen;
 $percentages: 8.33%, 16.66%, 25%, 33.33%, 41.66%, 50%, 58.33%, 66.6%, 75%, 83.33%, 91.66%, 100%;
 $cols: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 
+* {
+  box-sizing: border-box;
+}
+
 .row {
   display: block;
-  background: red;
   width: 100%;
   clear: both;
   padding: 10px;
