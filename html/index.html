@@ -15,12 +15,18 @@
 		<input class='tomato-placeholder' type='text' placeholder=".tomato-placeholder">
 
 		<h1>Sass inputIcon @mixin examples</h1>
-		<div class='input-icon person-add'>
-			<input type='text' placeholder='.input-icon.person-add'> 
-		</div>
-		<div class='input-icon search'>
-			<input type='text' placeholder='.input-icon.search'> 
-		</div>
+		<!-- search -->
+		<section class="input-icon search">
+			<label for="creditCardInput"></label>
+			<input id='creditCardInput' placeholder='.input-icon.search'>
+			<a onclick="alert('do something - like clear the input, for example')"></a>
+		</section>
+		<!-- person-add -->
+		<span class="input-icon person-add">
+			<label for="creditCardInput"></label>
+			<input id='creditCardInput' placeholder='.input-icon.search'>
+			<a onclick="alert('do something - like clear the input, for example')"></a>
+		</span>		
 
 		<h1>fontawesome icon examples</h1>
 		<span>fa fa-address-card-o <i class="fa fa-address-card-o"></i></span>

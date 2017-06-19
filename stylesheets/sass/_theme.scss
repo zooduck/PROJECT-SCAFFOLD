@@ -17,10 +17,20 @@ div.background-image-example {
 }
 .input-icon {
 	font-size: 2em;
-	&.person-add {
-		@include inputIcon(Ionicons, '\f344');
-	}
 	&.search {
-		@include inputIcon(Ionicons, '\f375', 'tomato', '#fff');
+		label {
+			@include inputIcon_Label(Ionicons, '\f375', coral, #222);
+		}
+		a {
+			@include inputIcon_A(Ionicons, '\f2c0', '', tomato);
+		}
+	}
+	&.person-add {
+		label {
+			@include inputIcon_Label(Ionicons, '\f344', '', #222);
+		}
+		a {
+			@include inputIcon_A(Ionicons, '\f2c0', '', #555);
+		}
 	}
 }
