@@ -5,6 +5,6 @@ console.log(es5BabelTest);
 
 let resetInput = (aTag) => {
 	let inputEl = aTag.parentNode.querySelector('input');
-	inputEl.value = "";
 	inputEl.focus();
+	inputEl.value = "";
 };
