@@ -22,10 +22,10 @@ div.background-image-example {
 			@include placeholder();
 		}
 		label {
-			@include inputIcon_Label(Ionicons, '\f375', coral, #222);
+			@include inputIcon_Label(Ionicons, '\f375', crimson, #fff);
 		}
 		a {
-			@include inputIcon_A(Ionicons, '\f2c0', '', tomato);
+			@include inputIcon_A(Ionicons, '\f2c0', '', crimson);
 		}
 	}
 	&.person-add {

@@ -13,10 +13,11 @@ $placeholder-vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::
     &#{$prefix}{
       transition: all .2s;
       color: #{$color};
+      transform: scale(1);
     }
     &:focus {
         &#{$prefix}{
-            transform: scale(0.9);
+            transform: scale(0.95);
         }
     }
   }
@@ -63,6 +64,7 @@ $placeholder-vendor-prefixes: '::placeholder', '::-webkit-input-placeholder' '::
             top: 7px;
             z-index: 1;
             padding: 5px 10px;
+            pointer-events: none;
 
             // user configurable
             content: "";
