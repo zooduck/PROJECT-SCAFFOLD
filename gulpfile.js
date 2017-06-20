@@ -100,7 +100,8 @@ let scripts = (cb) => {
         gulp.src(`${paths.scripts}/\**/\*.js`),
         $.concat(`${projectName}.js`),
         $.babel({
-            presets: ["es2015"]
+            // presets: ["es2015"]
+            presets: ["es2015-native-modules"]
         }),
         // $.uglify(),
         gulp.dest(paths.distRoot)
