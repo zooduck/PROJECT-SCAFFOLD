@@ -3,6 +3,10 @@ const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].bundle.css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 const config = {
     entry: {
@@ -23,22 +27,22 @@ const config = {
                 include: path.resolve(__dirname, "src"),
                 loader: "html-loader"
             },           
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [
-                        {
-                            loader: "css-loader",
-                            options: { importLoaders: 1}
-                        },
-                        "postcss-loader"
-                    ]
-                })
-            },
+            // {
+            //     test: /\.css$/,
+            //     use: ExtractTextPlugin.extract({
+            //         fallback: "style-loader",
+            //         use: [
+            //             {
+            //                 loader: "css-loader",
+            //                 options: { importLoaders: 1}
+            //             },
+            //             "postcss-loader"
+            //         ]
+            //     })
+            // },
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
+                use: extractSass.extract({
                     fallback: "style-loader",                  
                     use: [
                         {
@@ -46,7 +50,7 @@ const config = {
                             options: { importLoaders: 1}
                         },
                         "sass-loader",
-                        // "postcss-loader" // NOTE: this works but ONLY if there are no @imports
+                        "postcss-loader" // NOTE: for this to work all @import statements must be explicit, i.e. @import "_theme.scss" instead of @import "theme"
                     ]
                 })
             },
@@ -69,13 +73,7 @@ const config = {
     },
     devtool: "source-map",
     plugins: [
-        // new webpack.loaderOptionsPlugin({
-        //     options: {
-        //         postcss: [
-        //             autoprefixer("last 2 versions")
-        //         ]
-        //     }
-        // }),
+        extractSass,
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
           title: "title defined in webpack.dev.config.js",
@@ -83,6 +81,7 @@ const config = {
         }),
         new ExtractTextPlugin({
             filename: "[name].bundle.css",
+            disable: process.env.NODE_ENV === "development",
             allChunks: true
         })
     ]

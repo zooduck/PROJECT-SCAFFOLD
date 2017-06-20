@@ -3,7 +3,6 @@ if (module.hot) {
 }
 
 import "./main.scss";
-import "./test.css";
 import services from "./services";
 import {groupBy} from "lodash/fp";
 
