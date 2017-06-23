@@ -1,0 +1,12 @@
+@import "_variables.scss";
+@import "_grid.scss";
+@import "_theme.scss";
+
+body {
+	background-color: $background-color-base;
+	font-family: calibri, sans-serif;
+	h1 {
+		color: #fff;
+		transform: skew(20deg, -10deg);		
+	}
+}

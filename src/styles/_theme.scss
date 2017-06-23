@@ -1,0 +1,62 @@
+.theme {	
+	filter: grayscale(100%);
+	display: flex;	
+}
+
+#translationsObject {
+	position: absolute;
+	top: 200px;
+	left: 10px;
+	width: 100%;
+	border: dashed 3px #ccc;
+	padding: 20px;
+	background: #fff;
+	width: calc(100% - 20px);
+}
+
+textarea {
+	margin-left: 15px;
+	margin-top: 15px;
+	// z-index: 100;
+}
+
+label {
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+table {
+	position: absolute;
+	top: 400px;
+	left: 50px;
+	border-collapse: collapse;	
+	tr {
+		&:nth-of-type(1) {
+			border: solid 0 #000;
+			border-bottom-width: 1px;
+		}
+	}
+	th, td {
+		padding: 5px;
+	}	
+	th {
+		background: red;
+		&:nth-of-type(2) {
+			background: yellow;
+		}
+		&:nth-of-type(3) {
+			background: green;
+		}
+	}
+	td {
+		background: red;
+		&:nth-of-type(2) {
+			background: yellow;
+		}
+		&:nth-of-type(3) {
+			background: green;
+		}
+	}
+}

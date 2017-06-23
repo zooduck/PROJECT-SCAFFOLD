@@ -40,8 +40,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf ./dist && mkdir dist && cd ./dist && mkdir img && mkdir fonts",
     "serve": "http-server",
-    "dev": "webpack-dev-server --config=webpack.dev.config.js --inline --hot",
-    "build": "webpack --config=webpack.dev.config.js --watch",
+
+
+
+
+    "prebuild-dev": "rimraf ./dist && mkdir dist && cd ./dist && mkdir img && mkdir fonts",   
+    "build-dev": "set NODE_ENV=development && webpack --config=webpack.dev.config.js --watch",
+    "dev-server": "set NODE_ENV=development && webpack-dev-server --config=webpack.dev.config.js --inline",
+    
+    "prebuild": "rimraf ./dist && mkdir dist && cd ./dist && mkdir img && mkdir fonts",
+    "build": "set NODE_ENV=production && webpack --config=webpack.dev.config.js --watch",
+
+
+
+
     "webpack": "webpack --config=webpack.dev.config.js",
     "prebuild-old": "echo running the prebuild task",
     "build-old": "webpack --config=webpack.dev.config.js -p",

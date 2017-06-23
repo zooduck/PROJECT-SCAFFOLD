@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+
+  	<!-- <h1>hallo domper</h1>
+  	<h1></h1> -->
+
+  	<textarea id="translationsJson"></textarea>
+  	<button type="button">convert</button>
+
+
+
+  	<textarea id="translationsObject"></textarea>
+
+
+
+
+
+
+  	<input type="file" id="fileInput" multiple hidden>
+  	<label for="fileInput">upload file</label>
+  	<span id="fileList" style="background:#222; color: #fff; padding: 5px;">No files selected init</span>
+
+  	<span>video upload preview</span><video id="videoPreview"></video>
+
+
+
+
+	  	<table id="csvTable">
+	  		<caption>csv table</caption>
+	  	</table>
+
+	  	<button id="saveCsv">Save CSV</button>
+
+	  	<a download="translations.json">click to create and download a text file</a>
+
+
+
+
+  </body>
+</html>
