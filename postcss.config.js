@@ -2,7 +2,7 @@ module.exports = {
 	plugins: {
 		"postcss-import": {},
 		"postcss-cssnext": {
-			browsers: ["last 500 versions", "> 5%"] // the Browserslist config can alternately be set directly in package.json (see example below)
+			browsers: ["last 5 versions", "> 5%"] // the Browserslist config can alternately be set directly in package.json (see example below)
 		},
 	}
 };

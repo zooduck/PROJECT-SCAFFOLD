@@ -2,17 +2,16 @@ if (module.hot) {
 	module.hot.accept();
 }
 
+import groupBy from "lodash/groupBy";
+
 
 import Library from "./library";
 // import {convertJsonToObject} from "./services";
 import Services from "./services";
 
 import "../styles/main.scss";
-import "../styles/test.css";
-import "../templates/index.ejs";
+// import "../styles/test.css";
 
-import flat from "flat";
-import groupBy from "lodash/groupBy";
 
 // import './new';
 // import './new2';
@@ -48,8 +47,9 @@ fileInput.addEventListener("change", Services.fileHandler);
 
 let link = document.querySelector("a");
 link.addEventListener("click", function () {
-	Services.makeTextFile(this);
+	// Services.makeTextFile(this);
+	Services.saveTranslations(this);
 	// Services.makeDemoTextFile(this);
 });
 
-//console.log(flat);
+

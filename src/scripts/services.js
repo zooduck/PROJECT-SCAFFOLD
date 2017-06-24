@@ -1,3 +1,6 @@
+import flat from "flat";
+// const unflatten = flat["unflatten"];
+
 const readFile = (imgEl, file) => {
 	let reader = new FileReader();
 
@@ -7,9 +10,9 @@ const readFile = (imgEl, file) => {
 	reader.readAsDataURL(file);	
 }
 
-const csvTable = document.getElementById("csvTable");
+const translationTable = document.getElementById("translationTable");
 
-const unflatten = require("flat").unflatten;
+// const unflatten = require("flat").unflatten;
 
 export default {
 	convertJsonToObject: function (json) {
@@ -51,7 +54,7 @@ export default {
 	},
 	makeTextFile: function (link) {
 		let translations = [];
-		for (let row of Array.from(csvTable.children)) {
+		for (let row of Array.from(translationTable.children)) {
 
 			if (row.firstChild.nodeName.toString().match(/th/i) || row.nodeName.toString().match(/caption/i)) {
 				continue; // ignore the headers and caption
@@ -102,14 +105,71 @@ export default {
 		// console.log(csvData);
 		// console.log(translations);
 	},
+	saveTranslations: function (link) {
+		let translations = {};
+		for (let row of translationTable.children) {
+			if (row.nodeName.match(/(caption|tbody)/i)) {
+				continue;
+			}
+			let key = row.children[0].innerHTML;
+			let en = row.children[1].innerHTML;
+			let trans = row.children[2].querySelector("textarea").value;
+
+			if (trans !== "") {
+				translations[key] = trans;				
+			}
+		}
+		translations = flat.unflatten(translations);
+
+		let data = new Blob([JSON.stringify(translations, null, 4)], {type: "text/plain"});
+		let jsonFile = window.URL.createObjectURL(data);
+		link.href = jsonFile;
+		// console.log(flat.unflatten(translations));
+		// console.log(JSON.stringify(translations));
+	},
 	fileHandler: function () {
 		// handle files...
 		let files = [];
 		for (let file of Array.from(this.files)) {
 
-			alert(file.type);
+			//alert(file.type);
 
-			if (file.type.match(/^image\//)) {
+			if (file.type === "" && file.name.match(/.json$/i) || file.type.match(/json/i)) { // JSON files
+				let reader = new FileReader();
+				reader.onload = (e) => {
+					let json = e.target.result;
+					let translations = JSON.parse(json);
+					for (let key in translations) {
+						let english = translations[key];
+						let tr = document.createElement("TR");
+						let cols = [];
+						for (let i = 0; i < 3; i++) {
+							let td = document.createElement("TD");
+							td.innerHTML = i === 0? key : i === 1? english : "";
+							if (i === 2) {
+								let textarea = document.createElement("TEXTAREA");
+								textarea.rows = 1;
+								textarea.addEventListener("keydown", (e) => {
+									let key = e.keyCode || e.charCode;
+									if (key === 13) { // enter/return key
+										e.preventDefault();
+									}
+								});
+								td.appendChild(textarea);
+							}
+							cols.push(td);
+						}
+						for (let col of cols) {
+							tr.appendChild(col);
+							translationTable.appendChild(tr);
+						}
+					}
+
+				}
+				reader.readAsText(file);
+			}
+
+			if (file.type.match(/^image\//)) { // Image files
 				let imgEl = document.createElement("IMG");
 				imgEl.setAttribute("file", file);
 
@@ -123,7 +183,7 @@ export default {
 				// readFile(imgEl, file);
 			}
 
-			if (file.type.match(/^video\//)) {
+			if (file.type.match(/^video\//)) { // Video files
 				let video = document.getElementById("videoPreview");
 				let obj_url = window.URL.createObjectURL(file);
 				video.height = 250;
@@ -131,9 +191,8 @@ export default {
 				video.play();				
 			}
 
-			if (file.type.match(/application\/vnd.ms-excel/)) {
-				let reader = new FileReader();
-				let csvTable = document.getElementById("csvTable");
+			if (file.type.match(/application\/vnd.ms-excel/)) { // CSV files
+				let reader = new FileReader();				
 				reader.onload = function (e) {
 					let rows = e.target.result.split("\n");
 					let headers = true;
@@ -163,7 +222,7 @@ export default {
 							translationCol_td.appendChild(translationCol_input);
 							tr.appendChild(translationCol_td);
 						}						
-						csvTable.appendChild(tr);											
+						translationTable.appendChild(tr);											
 						headers = false;
 					}					
 					console.log(e.target.result);

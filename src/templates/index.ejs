@@ -2,12 +2,21 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title><%= HTML_WEBPACK_PLUGIN.options.title %></title>
   </head>
   <body>
 
+<!--     <img src='example.jpg' alt="example.png"> -->
+
   	<!-- <h1>hallo domper</h1>
   	<h1></h1> -->
+
+   <!--  <img src="../img/example.jpg"> -->
+   <img src="../img/example.jpg">
+
+   <div>
+   <span class="fa fa-calendar fa-3x"></span>
+   </div>
 
   	<textarea id="translationsJson"></textarea>
   	<button type="button">convert</button>
@@ -30,8 +39,11 @@
 
 
 
-	  	<table id="csvTable">
+	  	<table id="translationTable">
 	  		<caption>csv table</caption>
+        <tr>
+          <th>Key</th><th>English</th><th>Translation</th>
+        </tr>
 	  	</table>
 
 	  	<button id="saveCsv">Save CSV</button>
